@@ -1,0 +1,25 @@
+article, header, nav, aside, section, footer {
+  background: hsla(200, 30%, 30%, .4);
+}
+
+body > article {
+  width: 760px;
+  margin: 0 auto;
+}
+
+article article {
+  overflow: hidden;
+  width: 750px;
+  margin: 20px 0;
+  padding: 5px;
+}
+
+aside {
+  width: 150px;
+  float: left;
+}
+
+section {
+  float: right;
+  width: 590px;
+}
