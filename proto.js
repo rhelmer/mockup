@@ -1,3 +1,21 @@
+function getSignaturesForBug(bug_id) {
+    var url = 'SignaturesForBug.json';
+    $('#loading').show()
+    $.getJSON(url, function(result) {
+        hit = result.hits[0];
+        if (bug_id == hit.id) {
+            getTCBS(hit.signature, hit.id);
+        } else {
+            $('#resultsTable').hide()
+            $('#no-results').show()
+        }
+        $('#loading').hide()
+    })
+    .fail(function() {
+        console.log('FAIL');
+    })
+}
+
 function getTCBS(signature, bug_id) {
     //var url = 'https://crash-stats.allizom.org/';
     //url += 'api/TCBS/?product=Firefox&version=28.0a1&limit=300';
@@ -8,7 +26,7 @@ function getTCBS(signature, bug_id) {
         $.each(result.crashes, function(index, crash) {
             console.log(crash.signature, signature);
             if (crash.signature == signature) {
-                $('#resultsTable tr:first').after(
+                $('#resultsTable tbody tr:first').after(
                     '<tr><td>' +
                     '<a href="http://bugzil.la/' + bug_id + '">' + bug_id +
                     '</a></td>' +
@@ -28,12 +46,12 @@ function getTCBS(signature, bug_id) {
 }
 
 (function($) {
-    var url = 'SignaturesForBug.json';
-    $.getJSON(url, function(result) {
-        hit = result.hits[0];
-        getTCBS(hit.signature, hit.id);
-    })
-    .fail(function() {
-        console.log('FAIL');
-    })
+    $('#bug-form').submit(function(event) {
+        event.preventDefault();
+        $('#no-results').hide();
+        $('#resultsTable tbody tr td').remove();
+        var bug_id = $('#bug-input').val();
+        getSignaturesForBug(bug_id);
+    });
+  
 })(jQuery);

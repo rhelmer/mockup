@@ -8,11 +8,19 @@
 <body>
   <article>
     <header>Display topcrash ranks for all signatures of bug</header>
-    <section>Bug #:<input type="text"></section>
+    <section>
+      Bug #:
+      <form id="bug-form">
+        <input id="bug-input" type="text">
+        <button type="submit">Go</button>
+      </form>
+    </section>
   </article>
   <article>
+    <header>Results</header>
     <section>
       <div id="loading">Loading...</div>
+      <div id="no-results">NO RESULTS</div>
       <table id="resultsTable">
         <thead>
           <tr>
@@ -21,7 +29,7 @@
             <td>Rank</td>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody><tr></tr></tbody>
       </table>
     </section>
   </article>
