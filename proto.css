@@ -3,8 +3,18 @@ article, header, nav, aside, section, footer {
 }
 
 body > article {
-  width: 760px;
+  width: 1024px;
   margin: 0 auto;
+}
+
+table{
+  border-collapse: collapse;
+  border: 1px solid black;
+  display: none;
+}
+
+table td{
+  border: 1px solid black;
 }
 
 article article {
@@ -20,6 +30,10 @@ aside {
 }
 
 section {
-  float: right;
-  width: 590px;
+  float: left;
+  width: 1024px;
+}
+
+#loading {
+  display: none;
 }
