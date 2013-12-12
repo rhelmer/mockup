@@ -7,12 +7,25 @@
 </head>
 <body>
   <article>
-    <header></header>
-    <article>
-      <aside></aside>
-      <section></section>
-    </article>
-    <footer></footer>
+    <header>Display topcrash ranks for all signatures of bug</header>
+    <section>Bug #:<input type="text"></section>
   </article>
+  <article>
+    <section>
+      <div id="loading">Loading...</div>
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <td>Bug ID</td>
+            <td>Signature</td>
+            <td>Rank</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </article>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="proto.js"></script>
 </body>
 </html>
