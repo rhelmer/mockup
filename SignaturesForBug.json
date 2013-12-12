@@ -1,0 +1,9 @@
+{
+    "hits": [
+        {
+            "id": 543210,
+            "signature": "FakeSignature1"
+        }
+    ],
+    "total": 1
+}
